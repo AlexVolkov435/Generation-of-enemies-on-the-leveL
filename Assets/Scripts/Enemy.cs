@@ -2,17 +2,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private float _derectionRandomX = 0;
-    private float _derectionRandomZ = 0.1f;
+    private int _rotationeSpeed = 10;
+    private Vector3 _direction;
 
     private void FixedUpdate()
     {
         Move();
     }
 
-    public void Move()
+    private void Move()
     {
-        transform.Translate(new Vector3(_derectionRandomX, 0, _derectionRandomZ));
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(_derectionRandomX, 0, _derectionRandomZ)),  Time.deltaTime * 10);
+        transform.Translate(_direction);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_direction),  Time.fixedDeltaTime * _rotationeSpeed);
+    }
+
+    public void Init(Vector3 derection)
+    {
+        _direction = derection;
     }
 }

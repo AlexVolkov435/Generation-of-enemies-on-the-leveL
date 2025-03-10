@@ -4,32 +4,41 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Transform[] _spawnPoint;
-    [SerializeField] private Transform _prefab;
     [SerializeField] private Enemy _enemy;
+
+    [SerializeField] private float _derectionRandomX = 0;
+    [SerializeField] private float _derectionRandomZ = 0.1f;
 
     private int _spawnDelay = 2;
     private int _countAllPlayer = 10;
-
     private int _countPlayer;
+
+    private Vector3 _direction;
 
     private void Start()
     {
         StartCoroutine(Spawn());
     }
 
-    IEnumerator Spawn()
+    private IEnumerator Spawn()
     {
         while (_countPlayer < _countAllPlayer)
         {
             Transform randomIndexSpawn = ChooseRandomNumber();
+            WaitForSeconds wait = new WaitForSeconds(_spawnDelay);
 
-            Instantiate(_prefab, randomIndexSpawn.transform.position, Quaternion.identity);
+            _direction = new Vector3(_derectionRandomX, 0, _derectionRandomZ);
+
+            Enemy enemy = Instantiate(_enemy);
+
+            enemy.transform.position = randomIndexSpawn.transform.position;
+            enemy.transform.rotation = Quaternion.identity;
 
             _countPlayer++;
 
-            _enemy.Move();
+            enemy.Init(_direction);
 
-            yield return new WaitForSecondsRealtime(_spawnDelay);
+            yield return wait;
         }
     }
 
