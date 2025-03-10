@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RemoveObject : MonoBehaviour
+public class Removal : MonoBehaviour
 {
     private void OnTriggerEnter(Collider collider)
     {

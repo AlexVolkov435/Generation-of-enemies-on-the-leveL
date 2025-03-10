@@ -333,13 +333,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.010442929, y: 0.9962233, z: -0.086067885, w: -0.0047568623}
-  m_LocalPosition: {x: 23.51, y: 2.6, z: 53.12}
+  m_LocalRotation: {x: 0.010287448, y: 0.9930071, z: -0.11749554, w: -0.005084379}
+  m_LocalPosition: {x: 23.51, y: 3.16, z: 52.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 9.868, y: 180.656, z: 1.258}
+  m_LocalEulerAnglesHint: {x: 13.488, y: 180.737, z: 1.274}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,12 +352,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c109a283794f4c74a81b9f1447509df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pollCount: 5
   _spawnPoint:
   - {fileID: 1794989482}
   - {fileID: 1011967876}
   - {fileID: 525323649}
-  _prefab: {fileID: 1481727303917165515, guid: 831f5b8fa9dadef4e9afdddd38654622, type: 3}
   _enemy: {fileID: 4870907947790643357, guid: 831f5b8fa9dadef4e9afdddd38654622, type: 3}
+  _autoExpand: 0
+  _derectionRandomX: 0
+  _derectionRandomZ: 0.1
 --- !u!1 &1011967875
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +404,7 @@ GameObject:
   - component: {fileID: 1372607885}
   - component: {fileID: 1372607884}
   m_Layer: 0
-  m_Name: Terrain
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,7 +530,7 @@ GameObject:
   - component: {fileID: 2001687287}
   - component: {fileID: 2001687286}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: PlaceDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
